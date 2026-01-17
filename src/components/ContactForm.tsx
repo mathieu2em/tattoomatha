@@ -78,27 +78,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Send email via mailto with form data
-      const subject = encodeURIComponent(`Nouvelle demande de tatouage - ${formData.name}`);
-      const body = encodeURIComponent(
-`Nom: ${formData.name}
-Email: ${formData.email}
-Téléphone: ${formData.phone}
+      // Send email via API
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-Style de tatouage: ${formData.tattooStyle}
-Emplacement: ${formData.placement}
-Taille: ${formData.size}
-Budget: ${formData.budget}
-Disponibilités: ${formData.availability}
-
-Description:
-${formData.description}
-
-Images de référence:
-${formData.referenceImages}`
-      );
-      
-      window.location.href = `mailto:mathieu.perron95@outlook.com?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
       
       setSubmitStatus("success");
       setFormData({
@@ -148,9 +139,9 @@ ${formData.referenceImages}`
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           onSubmit={handleSubmit}
-          className="glass rounded-2xl p-6 md:p-10"
+          className="glass rounded-2xl p-4 sm:p-6 md:p-10"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">

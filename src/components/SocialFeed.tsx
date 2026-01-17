@@ -147,11 +147,11 @@ export default function SocialFeed() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-4 mb-10"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 px-2"
         >
           <button
             onClick={() => setFilter("all")}
-            className={`px-6 py-2 rounded-full font-medium transition-all ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all ${
               filter === "all"
                 ? "bg-gold-400 text-ink-900"
                 : "bg-ink-700 text-gray-300 hover:bg-ink-600"
@@ -161,30 +161,32 @@ export default function SocialFeed() {
           </button>
           <button
             onClick={() => setFilter("instagram")}
-            className={`px-6 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all flex items-center gap-1 sm:gap-2 ${
               filter === "instagram"
                 ? "bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white"
                 : "bg-ink-700 text-gray-300 hover:bg-ink-600"
             }`}
           >
-            <FaInstagram />
-            Instagram
+            <FaInstagram size={16} />
+            <span className="hidden xs:inline">Instagram</span>
+            <span className="xs:hidden">IG</span>
           </button>
           <button
             onClick={() => setFilter("tiktok")}
-            className={`px-6 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-medium transition-all flex items-center gap-1 sm:gap-2 ${
               filter === "tiktok"
                 ? "bg-black text-white border border-gray-600"
                 : "bg-ink-700 text-gray-300 hover:bg-ink-600"
             }`}
           >
-            <FaTiktok />
-            TikTok
+            <FaTiktok size={14} />
+            <span className="hidden xs:inline">TikTok</span>
+            <span className="xs:hidden">TT</span>
           </button>
         </motion.div>
 
         {/* Posts grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
           {filteredPosts.map((post, index) => (
             <PostCard key={post.id} post={post} index={index} viewOnText={t("social.viewOn")} />
           ))}

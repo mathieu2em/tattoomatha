@@ -31,7 +31,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4 sm:mb-6 px-2">
             <span className="text-gray-100">{t("hero.title1")}</span>
             <br />
             <span className="gradient-text">{t("hero.title2")}</span>
@@ -69,17 +69,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:px-0"
         >
           <a
             href="#contact"
-            className="px-8 py-4 bg-gold-400 text-ink-900 font-semibold rounded-lg hover:bg-gold-500 transition-all transform hover:scale-105 shadow-lg shadow-gold-400/20"
+            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 bg-gold-400 text-ink-900 font-semibold rounded-lg hover:bg-gold-500 transition-all transform hover:scale-105 shadow-lg shadow-gold-400/20 text-sm sm:text-base"
           >
             {t("hero.cta.book")}
           </a>
           <a
             href="#work"
-            className="px-8 py-4 border border-gold-400/30 text-gold-400 font-semibold rounded-lg hover:bg-gold-400/10 transition-all"
+            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 border border-gold-400/30 text-gold-400 font-semibold rounded-lg hover:bg-gold-400/10 transition-all text-sm sm:text-base"
           >
             {t("hero.cta.work")}
           </a>

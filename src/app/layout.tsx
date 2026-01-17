@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description:
     "Tatouages personnalisés par Mathieu Perron à St-Jean-de-Matha. Transformez votre vision en art corporel intemporel. Réservez votre consultation aujourd'hui.",
   keywords: ["tattoo", "tatouage", "tattoo artist", "artiste tatoueur", "St-Jean-de-Matha", "Mathieu Perron", "custom tattoo"],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
+  themeColor: "#0a0a0a",
 };
 
 export default function RootLayout({
