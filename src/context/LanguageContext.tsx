@@ -100,6 +100,13 @@ const translations: Record<Language, Record<string, string>> = {
     "size.halfSleeve": "Demi-Manchette",
     "size.fullBack": "Dos Complet",
     "size.notSure": "Pas encore sûr",
+    
+    // Gallery
+    "gallery.title": "Réalisations",
+    "gallery.description": "Quelques-uns de mes tatouages préférés",
+    "gallery.viewMore": "Voir plus",
+    "gallery.viewLess": "Voir moins",
+    "gallery.moreCount": "de plus",
   },
   en: {
     // Navbar
@@ -189,8 +196,13 @@ const translations: Record<Language, Record<string, string>> = {
     "size.fullSleeve": "Full Sleeve",
     "size.halfSleeve": "Half Sleeve",
     "size.fullBack": "Full Back",
-    "size.notSure": "Not sure yet",
-  },
+    "size.notSure": "Not sure yet",    
+    // Gallery
+    "gallery.title": "Featured Work",
+    "gallery.description": "Some of my favorite tattoos",
+    "gallery.viewMore": "View more",
+    "gallery.viewLess": "View less",
+    "gallery.moreCount": "more",  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

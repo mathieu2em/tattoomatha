@@ -63,8 +63,8 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="/#work"
-              onClick={(e) => handleAnchorClick(e, "work")}
+              href="/#featured"
+              onClick={(e) => handleAnchorClick(e, "featured")}
               className="text-gray-300 hover:text-gold-400 transition-colors cursor-pointer"
             >
               {t("nav.work")}
@@ -128,8 +128,8 @@ export default function Navbar() {
           <div className="md:hidden mt-4 pb-4 border-t border-ink-600 pt-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <a
-                href="/#work"
-                onClick={(e) => handleAnchorClick(e, "work")}
+                href="/#featured"
+                onClick={(e) => handleAnchorClick(e, "featured")}
                 className="text-gray-300 hover:text-gold-400 transition-colors cursor-pointer"
               >
                 {t("nav.work")}
