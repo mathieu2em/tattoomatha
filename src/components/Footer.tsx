@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#work"
+                  href="/#work"
                   className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
                 >
                   {t("footer.viewWork")}
@@ -44,7 +44,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
                 >
                   {t("footer.bookSession")}

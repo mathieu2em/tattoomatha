@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#work"
+              href="/#work"
               className="text-gray-300 hover:text-gold-400 transition-colors"
             >
               {t("nav.work")}
@@ -50,7 +50,7 @@ export default function Navbar() {
               {t("nav.faq")}
             </Link>
             <a
-              href="#contact"
+              href="/#contact"
               className="text-gray-300 hover:text-gold-400 transition-colors"
             >
               {t("nav.contact")}
@@ -101,7 +101,7 @@ export default function Navbar() {
           <div className="md:hidden mt-4 pb-4 border-t border-ink-600 pt-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <a
-                href="#work"
+                href="/#work"
                 className="text-gray-300 hover:text-gold-400 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -115,7 +115,7 @@ export default function Navbar() {
                 {t("nav.faq")}
               </Link>
               <a
-                href="#contact"
+                href="/#contact"
                 className="text-gray-300 hover:text-gold-400 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
