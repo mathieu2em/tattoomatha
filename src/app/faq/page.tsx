@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiDollarSign, FiClock, FiHeart, FiAlertCircle, FiCalendar, FiShield, FiDroplet } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext";
@@ -181,8 +182,21 @@ function FAQAccordion({ item, isOpen, onClick }: { item: FAQItem; isOpen: boolea
 export default function FAQPage() {
   const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const router = useRouter();
   
   const faqs = faqData[language] || faqData.fr;
+  
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push("/");
+    // Délai pour laisser la page charger avant de scroller
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 500);
+  };
   
   const pageContent = {
     fr: {
@@ -247,12 +261,12 @@ export default function FAQPage() {
             <h2 className="text-2xl font-display font-bold text-white mb-4">
               {content.cta}
             </h2>
-            <a
-              href="/#contact"
+            <button
+              onClick={handleContactClick}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-900 font-semibold px-8 py-3 rounded-full hover:from-gold-400 hover:to-gold-500 transition-all transform hover:scale-105"
             >
               {content.ctaButton}
-            </a>
+            </button>
           </div>
         </motion.div>
 
