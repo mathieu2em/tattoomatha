@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useLanguage } from "@/context/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -72,6 +72,14 @@ export default function Navbar() {
               >
                 <FaTiktok size={20} />
               </a>
+              <a
+                href="https://www.facebook.com/mathieuperron1234"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gold-400 transition-colors"
+              >
+                <FaFacebook size={20} />
+              </a>
             </div>
             <LanguageSwitcher />
           </div>
@@ -129,6 +137,14 @@ export default function Navbar() {
                   className="text-gray-300 hover:text-gold-400 transition-colors"
                 >
                   <FaTiktok size={20} />
+                </a>
+                <a
+                  href="https://www.facebook.com/mathieuperron1234"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-gold-400 transition-colors"
+                >
+                  <FaFacebook size={20} />
                 </a>
               </div>
             </div>

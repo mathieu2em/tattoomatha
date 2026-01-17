@@ -1,6 +1,6 @@
 "use client";
 
-import { FaInstagram, FaTiktok, FaHeart, FaMapMarkerAlt } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebook, FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -70,6 +70,16 @@ export default function Footer() {
                   TikTok
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/mathieuperron1234"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
+                >
+                  Facebook
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -95,6 +105,14 @@ export default function Footer() {
                 className="w-10 h-10 bg-ink-700 rounded-full flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all"
               >
                 <FaTiktok size={18} />
+              </a>
+              <a
+                href="https://www.facebook.com/mathieuperron1234"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-ink-700 rounded-full flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all"
+              >
+                <FaFacebook size={18} />
               </a>
             </div>
           </div>
