@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
@@ -131,9 +131,17 @@ export default function TattooCarousel() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedAlt, setSelectedAlt] = useState<string>("");
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Nombre d'images à afficher par défaut
-  const INITIAL_DISPLAY_COUNT = 13;
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // 13 sur desktop (4 colonnes), 14 sur mobile (2 colonnes = pair)
+  const INITIAL_DISPLAY_COUNT = isMobile ? 14 : 13;
   const displayedImages = showAll ? tattooImages : tattooImages.slice(0, INITIAL_DISPLAY_COUNT);
 
   const getSizeClass = (size: string) => {

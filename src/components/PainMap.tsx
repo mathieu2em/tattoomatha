@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { FiZap } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface BodyZone {
@@ -195,6 +197,8 @@ export default function PainMap() {
       hoverPrompt: "Survolez une zone pour voir le niveau de douleur",
       painLevel: "Niveau de douleur",
       tip: "💡 J'offre de la crème anesthésiante à mon studio pour votre confort!",
+      quizCta: "Teste ta tolérance à la douleur!",
+      quizCtaSub: "Quiz interactif + infos détaillées par zone",
     },
     en: {
       title: "Pain ",
@@ -205,6 +209,8 @@ export default function PainMap() {
       hoverPrompt: "Hover over a zone to see the pain level",
       painLevel: "Pain level",
       tip: "💡 I offer numbing cream at my studio for your comfort!",
+      quizCta: "Test your pain tolerance!",
+      quizCtaSub: "Interactive quiz + detailed zone info",
     },
   };
 
@@ -354,6 +360,23 @@ export default function PainMap() {
             </div>
           </motion.div>
         </div>
+
+        {/* Quiz CTA - Subtle link */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-8 flex justify-center"
+        >
+          <Link
+            href="/painmap"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            <FiZap className="w-4 h-4" />
+            <span className="text-sm font-medium">{t.quizCta}</span>
+            <span className="text-gray-500 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
