@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import twilio from "twilio";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Fonction pour envoyer un SMS de notification
 async function sendSmsNotification(name: string, tattooStyle: string, placement: string) {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -53,6 +51,9 @@ export async function POST(request: Request) {
         { status: 503 }
       );
     }
+
+    // Initialiser Resend avec la clé API
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Envoyer l'email
     const { data, error } = await resend.emails.send({

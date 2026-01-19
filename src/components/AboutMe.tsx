@@ -14,7 +14,7 @@ export default function AboutMe() {
       intro: "Artiste tatoueur passionné, basé à St-Jean-de-Matha, au cœur de Lanaudière.",
       description: `Je m'appelle Mathieu et je suis artiste tatoueur dans mon studio privé à St-Jean-de-Matha. Je t'accueille dans un environnement calme et personnalisé où je me consacre à 100% à créer une pièce unique, à ton image, avec un grand souci du détail.
 
-Je ne réalise qu'un à deux tatouages par semaine, ce qui me permet de donner toute mon attention à chaque projet. Je tatoue principalement en soirée, car je suis développeur logiciel le jour – un équilibre qui me permet de garder le tatouage comme une véritable passion plutôt qu'une simple profession.`,
+Je ne réalise qu'un à deux tatouages par semaine, ce qui me permet de donner toute mon attention à chaque projet. Je tatoue principalement en soirée, car je suis développeur logiciel le jour – un équilibre qui me permet de garder le tatouage comme une véritable passion.`,
       background: "Mon parcours combine un DEC en Arts visuels et un BAC en Informatique. Cette double formation est un atout unique : ma maîtrise des outils technologiques me permet de créer des œuvres d'une précision remarquable, de modéliser les tatouages en 3D et d'explorer des techniques innovantes pour donner vie à ta vision.",
       features: [
         { icon: FaPalette, text: "DEC en Arts Visuels" },
@@ -29,7 +29,7 @@ Je ne réalise qu'un à deux tatouages par semaine, ce qui me permet de donner t
       intro: "Passionate tattoo artist based in St-Jean-de-Matha, in the heart of Lanaudière.",
       description: `My name is Mathieu and I'm a tattoo artist working from my private studio in St-Jean-de-Matha. I welcome you in a calm, personalized environment where I dedicate 100% of my focus to creating a unique piece that reflects who you are, with meticulous attention to detail.
 
-I only do one to two tattoos per week, allowing me to give my full attention to each project. I tattoo mainly in the evenings since I work as a software developer during the day – a balance that lets me keep tattooing as a true passion rather than just a profession.`,
+I only do one to two tattoos per week, allowing me to give my full attention to each project. I tattoo mainly in the evenings since I work as a software developer during the day – a balance that lets me keep tattooing as a true passion.`,
       background: "My background combines a college degree in Visual Arts and a Bachelor's in Computer Science. This unique combination is a real asset: my mastery of technological tools allows me to create remarkably precise artwork, model tattoos in 3D, and explore innovative techniques to bring your vision to life.",
       features: [
         { icon: FaPalette, text: "Visual Arts Degree" },

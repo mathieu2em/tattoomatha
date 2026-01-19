@@ -108,6 +108,11 @@ const translations: Record<Language, Record<string, string>> = {
     "gallery.viewMore": "Voir plus",
     "gallery.viewLess": "Voir moins",
     "gallery.moreCount": "de plus",
+
+    // Legal
+    "legal.lastUpdated": "Dernière mise à jour",
+    "legal.terms.title": "Conditions d'utilisation",
+    "legal.privacy.title": "Politique de confidentialité",
   },
   en: {
     // Navbar
@@ -204,7 +209,13 @@ const translations: Record<Language, Record<string, string>> = {
     "gallery.description": "Some of my favorite tattoos",
     "gallery.viewMore": "View more",
     "gallery.viewLess": "View less",
-    "gallery.moreCount": "more",  },
+    "gallery.moreCount": "more",
+
+    // Legal
+    "legal.lastUpdated": "Last Updated",
+    "legal.terms.title": "Terms of Service",
+    "legal.privacy.title": "Privacy Policy",
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
