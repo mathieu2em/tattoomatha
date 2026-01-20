@@ -489,12 +489,11 @@ export default function PainMapPage() {
                         fillOpacity={isHovered ? 0.9 : quizMode && isSelected ? 0.9 : 0.6}
                         stroke={isHovered || isSelected ? "#fff" : getPainColor(zone.painLevel)}
                         strokeWidth={isHovered || isSelected ? 2 : 1}
-                        className="cursor-pointer transition-all duration-200 touch-none"
+                        className="cursor-pointer transition-all duration-200 touch-manipulation"
                         filter={isHovered ? "url(#glow)" : undefined}
-                        onMouseEnter={() => setHoveredZone(zone)}
-                        onMouseLeave={() => setHoveredZone(null)}
-                        onClick={() => handleZoneClick(zone)}
-                        onTouchStart={(e) => { e.preventDefault(); handleZoneClick(zone); }}
+                        onPointerEnter={(e) => e.pointerType === 'mouse' && setHoveredZone(zone)}
+                        onPointerLeave={(e) => e.pointerType === 'mouse' && setHoveredZone(null)}
+                        onPointerUp={() => handleZoneClick(zone)}
                       />
                     );
                   })}
@@ -526,7 +525,7 @@ export default function PainMapPage() {
                       {/* Share buttons */}
                       <div className="flex justify-center gap-2">
                         <button
-                          onClick={handleShare}
+                          onPointerUp={handleShare}
                           className="flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 text-ink-900 font-semibold px-5 py-2.5 rounded-full"
                         >
                           <FaInstagram className="w-4 h-4" />
@@ -534,7 +533,7 @@ export default function PainMapPage() {
                           {t.shareStory}
                         </button>
                         <button
-                          onClick={handleDownloadStory}
+                          onPointerUp={handleDownloadStory}
                           className="flex items-center gap-2 bg-ink-700 text-gray-300 px-4 py-2.5 rounded-full hover:bg-ink-600"
                           title={t.downloadImage}
                         >
@@ -544,15 +543,15 @@ export default function PainMapPage() {
                       {/* Tip about link sticker */}
                       <p className="text-xs text-gray-500">{t.shareTip}</p>
                       <button
-                        onClick={resetQuiz}
-                        className="flex items-center justify-center gap-2 text-gray-400 hover:text-gray-200 transition-colors text-sm"
+                        onPointerUp={resetQuiz}
+                        className="flex items-center justify-center gap-2 text-gray-400 hover:text-gray-200 transition-colors text-sm py-2"
                       >
                         <FiRotateCcw className="w-4 h-4" />
                         {t.restart}
                       </button>
                     </div>
                   </motion.div>
-                ) : hoveredZone ? (
+                ) : hoveredZone && !quizMode ? (
                   <motion.div
                     key="zone-info"
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -607,6 +606,17 @@ export default function PainMapPage() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Quiz CTA */}
+                    <div className="border-t border-ink-700 pt-4 mt-4">
+                      <button
+                        onPointerUp={(e) => { e.stopPropagation(); setHoveredZone(null); setQuizMode(true); }}
+                        className="flex items-center justify-center gap-2 w-full text-gold-400 hover:text-gold-300 transition-colors text-sm py-2"
+                      >
+                        <FiPlay className="w-4 h-4" />
+                        {t.startQuiz}
+                      </button>
+                    </div>
                   </motion.div>
                 ) : quizMode ? (
                   <motion.div
@@ -632,7 +642,7 @@ export default function PainMapPage() {
                     )}
 
                     <button
-                      onClick={() => setShowResults(true)}
+                      onPointerUp={() => selectedZones.size > 0 && setShowResults(true)}
                       disabled={selectedZones.size === 0}
                       className={`flex items-center justify-center gap-2 w-full py-3 rounded-full font-semibold transition-all ${
                         selectedZones.size > 0
@@ -659,8 +669,8 @@ export default function PainMapPage() {
                     {/* Subtle quiz CTA */}
                     <div className="border-t border-ink-700 pt-5 mt-4">
                       <button
-                        onClick={() => setQuizMode(true)}
-                        className="flex items-center justify-center gap-2 w-full text-gold-400 hover:text-gold-300 transition-colors text-sm"
+                        onPointerUp={() => setQuizMode(true)}
+                        className="flex items-center justify-center gap-2 w-full text-gold-400 hover:text-gold-300 transition-colors text-sm py-2"
                       >
                         <FiPlay className="w-4 h-4" />
                         {t.startQuiz}
