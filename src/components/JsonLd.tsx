@@ -1,4 +1,23 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { isRestrictiveInAppBrowser } from "@/utils/browserDetection";
+
 export default function JsonLd() {
+  const [shouldLoad, setShouldLoad] = useState(true);
+
+  useEffect(() => {
+    // Don't load JSON-LD in restrictive in-app browsers (Instagram, Facebook, etc.)
+    // to prevent CSP violations that cause white screens
+    if (isRestrictiveInAppBrowser()) {
+      setShouldLoad(false);
+    }
+  }, []);
+
+  if (!shouldLoad) {
+    return null;
+  }
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "TattooShop",
