@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaTiktok, FaFacebook, FaHeart, FaComment } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebook, FaHeart, FaComment, FaPlay } from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 import { useSocialPosts, SocialPost } from "@/hooks/useSocialPosts";
 
