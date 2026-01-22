@@ -14,117 +14,140 @@ import { urlFor } from "../../sanity/lib/image";
 const fallbackTattooImages = [
   {
     src: "/tattoos/epinette-noire-avant-bras.jpeg",
-    alt: "Épinette Noire",
+    title: "Épinette Noire",
+    alt: "Épinette noire tatouée sur avant-bras avec détails réalistes",
     size: "large",
   },
   {
     src: "/tattoos/dualite-emotionnelle-cuisse.jpeg",
-    alt: "Dualité Émotionnelle",
+    title: "Dualité Émotionnelle",
+    alt: "Tatouage représentant la dualité émotionnelle sur la cuisse",
     size: "medium",
   },
   {
     src: "/tattoos/mandala-epaule.jpeg",
-    alt: "Mandala d'Épaule",
+    title: "Mandala d'Épaule",
+    alt: "Mandala géométrique détaillé sur l'épaule",
     size: "large",
   },
   {
     src: "/tattoos/sacred-geometry-microrealism.jpeg",
-    alt: "Sacred Geometry",
+    title: "Sacred Geometry",
+    alt: "Géométrie sacrée en microréalisme",
     size: "small",
   },
   {
     src: "/tattoos/colibri-et-fleur.jpeg",
-    alt: "Colibri et Fleur",
+    title: "Colibri et Fleur",
+    alt: "Colibri en vol près d'une fleur délicate",
     size: "small",
   },
   {
     src: "/tattoos/phoenix-cube-metatron.jpeg",
-    alt: "Phoenix & Cube de Métatron",
+    title: "Phoenix & Cube de Métatron",
+    alt: "Phoenix mythique avec cube de Métatron en géométrie sacrée",
     size: "large",
   },
   {
     src: "/tattoos/bateau-viking.jpeg",
-    alt: "Bateau Viking",
+    title: "Bateau Viking",
+    alt: "Drakkar viking naviguant sur les mers nordiques",
     size: "medium",
   },
   {
     src: "/tattoos/marguerite.jpeg",
-    alt: "Marguerite",
+    title: "Marguerite",
+    alt: "Marguerite délicate en style botanique",
     size: "small",
   },
   {
     src: "/tattoos/floral-mollet.jpeg",
-    alt: "Composition Florale",
+    title: "Composition Florale",
+    alt: "Composition florale artistique sur le mollet",
     size: "small",
   },
   {
     src: "/tattoos/huitre-perle.jpeg",
-    alt: "Huître et Perle",
+    title: "Huître et Perle",
+    alt: "Huître ouverte révélant une perle précieuse",
     size: "small",
   },
   {
     src: "/tattoos/foret-nordique-avant-bras.jpeg",
-    alt: "Forêt Nordique",
+    title: "Forêt Nordique",
+    alt: "Paysage de forêt nordique sur l'avant-bras",
     size: "small",
   },
   {
     src: "/tattoos/mandala-coude.jpeg",
-    alt: "Mandala du Coude",
+    title: "Mandala du Coude",
+    alt: "Mandala circulaire centré sur le coude",
     size: "small",
   },
   {
     src: "/tattoos/memento-mori.jpeg",
-    alt: "Memento Mori",
+    title: "Memento Mori",
+    alt: "Rappel de la mortalité en style artistique",
     size: "small",
   },
   {
     src: "/tattoos/mandala-sur-mollet.png",
-    alt: "Mandala sur Mollet",
+    title: "Mandala sur Mollet",
+    alt: "Grand mandala décoratif sur le mollet",
     size: "small",
   },
   {
     src: "/tattoos/ginkgo-biloba.jpeg",
-    alt: "Feuille de Ginkgo Biloba",
+    title: "Feuille de Ginkgo Biloba",
+    alt: "Feuille de Ginkgo Biloba en détail botanique",
     size: "small",
   },
   {
     src: "/tattoos/agencement-avant-bras.jpeg",
-    alt: "Agencement Avant-Bras",
+    title: "Agencement Avant-Bras",
+    alt: "Composition artistique agencée sur l'avant-bras",
     size: "medium",
   },
   {
     src: "/tattoos/chibi-manga.jpeg",
-    alt: "Chibi Manga",
+    title: "Chibi Manga",
+    alt: "Personnage manga en style chibi",
     size: "small",
   },
   {
     src: "/tattoos/fleur-cover.jpeg",
-    alt: "Fleur Cover",
+    title: "Fleur Cover",
+    alt: "Fleur artistique en cover-up",
     size: "small",
   },
   {
     src: "/tattoos/king.jpeg",
-    alt: "King",
+    title: "King",
+    alt: "Symbole royal King",
     size: "small",
   },
   {
     src: "/tattoos/queen.jpeg",
-    alt: "Queen",
+    title: "Queen",
+    alt: "Symbole royal Queen",
     size: "small",
   },
   {
     src: "/tattoos/memorial-a-ses-enfants.jpeg",
-    alt: "Mémorial à ses Enfants",
+    title: "Mémorial à ses Enfants",
+    alt: "Tatouage mémorial dédié aux enfants",
     size: "medium",
   },
   {
     src: "/tattoos/F11BD132-F024-4494-9E9A-E7AC79589293_4_5005_c.jpeg",
-    alt: "Tatouage 22",
+    title: "Tatouage Artistique 1",
+    alt: "Tatouage artistique unique",
     size: "small",
   },
   {
     src: "/tattoos/FDEA7EEE-D2E9-4E95-94B8-8C5241D596E6_1_105_c.jpeg",
-    alt: "Tatouage 23",
+    title: "Tatouage Artistique 2",
+    alt: "Tatouage artistique créatif",
     size: "small",
   },
 ];
@@ -132,10 +155,11 @@ const fallbackTattooImages = [
 export default function TattooCarousel() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedTitle, setSelectedTitle] = useState<string>("");
   const [selectedAlt, setSelectedAlt] = useState<string>("");
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [tattoos, setTattoos] = useState<Array<{ src: string; alt: string; size: string }>>([]);
+  const [tattoos, setTattoos] = useState<Array<{ src: string; title: string; alt: string; size: string }>>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Fetch tattoos from Sanity
@@ -148,6 +172,7 @@ export default function TattooCarousel() {
           // Convert Sanity data to component format
           const formattedTattoos = sanityTattoos.map((tattoo) => ({
             src: urlFor(tattoo.image).url(),
+            title: tattoo.title,
             alt: tattoo.alt,
             size: tattoo.size,
           }));
@@ -213,6 +238,7 @@ export default function TattooCarousel() {
               className={`${getSizeClass(image.size)} relative overflow-hidden rounded-lg cursor-pointer group`}
               onClick={() => {
                 setSelectedImage(image.src);
+                setSelectedTitle(image.title);
                 setSelectedAlt(image.alt);
               }}
             >
@@ -230,7 +256,7 @@ export default function TattooCarousel() {
               {/* Overlay au hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-gold-400 font-semibold text-sm md:text-base">{image.alt}</p>
+                  <p className="text-gold-400 font-semibold text-sm md:text-base">{image.title}</p>
                 </div>
               </div>
               
@@ -288,7 +314,7 @@ export default function TattooCarousel() {
                 <div className="relative w-full h-[65vh]">
                   <Image
                     src={selectedImage}
-                    alt={selectedAlt}
+                    alt={selectedTitle}
                     fill
                     sizes="(max-width: 768px) 90vw, 60vw"
                     className="object-contain rounded-lg"
@@ -298,11 +324,14 @@ export default function TattooCarousel() {
                 </div>
               </div>
 
-              {/* Titre */}
+              {/* Titre et description */}
               <div className="mt-4 text-center">
                 <h3 className="text-gold-400 text-lg md:text-xl font-display font-bold">
-                  {selectedAlt}
+                  {selectedTitle}
                 </h3>
+                <p className="text-gold-400/70 text-sm md:text-base mt-2">
+                  {selectedAlt}
+                </p>
               </div>
             </motion.div>
           </motion.div>
